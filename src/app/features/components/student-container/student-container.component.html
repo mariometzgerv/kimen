@@ -1,0 +1,9 @@
+<a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none">
+    <i class="bi bi-easel fs-2 me-2"></i>
+    <span class="fs-5 fw-semibold">{{ grade.name }}</span>
+</a>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <ng-container *ngFor="let student of students">
+        <app-student-item *ngIf="grade.id == student.id_grade" [student]="student"></app-student-item>
+    </ng-container>
+</div>

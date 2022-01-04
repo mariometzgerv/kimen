@@ -1,0 +1,12 @@
+.kimen-news-item {
+    border-color: #807046;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background: #dfffb0;
+    transition-duration: 0.3s;
+}
+
+.kimen-news-item:hover {
+    padding: 10px;
+    background: #caee95;
+}

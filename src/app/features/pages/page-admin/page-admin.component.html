@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto h-100">
+    <div class="row flex-grow-sm-1 flex-grow-0">
+        <aside class="col-sm-2 flex-grow-sm-1 flex-shrink-1 flex-grow-0 sticky-top pb-sm-0 pb-3">
+            <app-admin-sidebar></app-admin-sidebar>
+        </aside>
+        <main class="col overflow-auto kimen-scroll" *ngIf="router.url === '/administracion/alumnos'">
+            <app-student-container *ngFor="let grade of grades" [grade]="grade"></app-student-container>
+        </main>
+    </div>
+</div>
