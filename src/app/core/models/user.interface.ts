@@ -1,6 +1,6 @@
-export interface StudentModel {
+export interface UserModel {
     id: number;
-    id_grade: number;
+    id_role: number;
     name: string;
     lastname: string;
     rut: string;

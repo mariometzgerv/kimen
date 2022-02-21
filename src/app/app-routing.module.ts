@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
 import { PageAdminComponent } from './features/pages/page-admin/page-admin.component';
 import { PageNewsComponent } from './features/pages/page-news/page-news.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { PageScheduleComponent } from './features/pages/page-schedule/page-schedule.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'horario', component: NavbarComponent },
+  { path: 'horario', component: PageScheduleComponent },
 //  { path: 'calendario', component: CalendarPageComponent },
   { path: 'comunicados',
     children: [

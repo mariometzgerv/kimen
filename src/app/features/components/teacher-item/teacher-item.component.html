@@ -1,0 +1,34 @@
+<div class="col py-2">
+    <div class="shadow-sm kimen-card-item-master">
+        <div class="card-body kimen-card-item" (click)="showDetail()">
+            <h6 class="card-text">{{ teacher.name + ' ' + teacher.lastname }}</h6>
+            <P>{{ teacher.rut + '-' + teacher.dv }}</P>
+        </div>
+
+        <div *ngIf="visible" class="row container-fluid">
+            
+            <h6 class="card-body card-text">Asignaturas</h6>
+
+            <div class="row row-cols-sm-3">
+                <ng-container *ngFor="let course of courses">
+                    <div class="py-2">
+                        <input class="mx-2" type="checkbox" id="{{ course.id }}" value="{{ course.id }}" [checked]="course.is_teacher == true">
+                        <label for="{{ course.id }}">{{ course.name }}</label>
+                    </div>
+                </ng-container>
+            </div>
+
+            <h6 class="card-body card-text">Cursos</h6>
+
+            <div class="row row-cols-sm-3">
+                <ng-container *ngFor="let grade of grades">
+                    <div class="py-2">
+                        <input class="mx-2" type="checkbox" id="{{ grade.id }}" value="{{ grade.id }}" [checked]="grade.is_teacher == true">
+                        <label for="{{ grade.id }}">{{ grade.name }}</label>
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+    </div>
+</div>

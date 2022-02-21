@@ -7,8 +7,9 @@
             <span class="fs-5 fw-semibold">Mensajes nuevos</span>
         </a>
         <div class="list-group list-group-flush scrollarea">
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
+            <ng-container *ngFor="let news of new_news">
+                <app-news-item [tittle]="news.tittle" [body]="news.body"></app-news-item>
+            </ng-container>
         </div>
     </div>
     <div *ngIf="router.url === '/comunicados/todos' || router.url === '/comunicados/leidos'">
@@ -17,16 +18,9 @@
             <span class="fs-5 fw-semibold">Mensajes leídos</span>
         </a>
         <div class="list-group list-group-flush scrollarea">
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
-            <app-news-item></app-news-item>
+            <ng-container *ngFor="let news of old_news">
+                <app-news-item [tittle]="news.tittle" [body]="news.body"></app-news-item>
+            </ng-container>
         </div>
     </div>
 </div>

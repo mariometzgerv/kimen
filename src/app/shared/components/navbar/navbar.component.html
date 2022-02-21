@@ -8,16 +8,18 @@
                 <li class="nav-item">
                     <a class="nav-link kimen-navbar-link" routerLink="/horario" [routerLinkActive]="'kimen-navbar-link-selected'">Horario</a>
                 </li>
+                <!---
                 <li class="nav-item">
                     <a class="nav-link kimen-navbar-link" routerLink="/calendario" [routerLinkActive]="'kimen-navbar-link-selected'">Calendario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link kimen-navbar-link" routerLink="/tareas" [routerLinkActive]="'kimen-navbar-link-selected'">Tareas</a>
                 </li>
+                --->
                 <li class="nav-item">
                     <a class="nav-link kimen-navbar-link" routerLink="/comunicados" [routerLinkActive]="'kimen-navbar-link-selected'">Comunicados</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="user_id_role == 1" class="nav-item">
                     <a class="nav-link kimen-navbar-link" routerLink="/administracion" [routerLinkActive]="'kimen-navbar-link-selected'">Administración</a>
                 </li>
                 <li class="nav-item">

@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid flex-grow-1 d-flex flex-column overflow-auto h-100">
+    <div class="row">
+        <main class="col overflow-auto kimen-scroll">
+            <div *ngIf="user_id_role == 1" class="card-body">
+                <select class="kimen-card-item form-select-lg w-100" (change)="changeGrade($event.target)">
+                    <option [value]="grade.id" *ngFor="let grade of grades">{{ grade.name }}</option>
+                </select>
+            </div>
+
+            <div *ngIf="user_id_role == 4">
+                <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none">
+                    <span class="fs-5 fw-semibold px-3">{{ grades[0].name }}</span>
+                </a>
+
+                <app-schedule-item [grade]="grades[0]"></app-schedule-item>
+            </div>
+
+            <ng-container *ngFor="let grade of grades">
+                <div *ngIf="grade.id == current_grade">
+                    <app-schedule-item [grade]="grade"></app-schedule-item>
+                </div>
+            </ng-container>
+
+        </main>
+    </div>
+</div>

@@ -7,11 +7,11 @@
         <div class="col-md-10 mx-auto col-lg-5">
             <form class="p-4 p-md-5 rounded-3 kimen-container">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control kimen-input" id="floatingInput" placeholder="Rut, sin puntos y con guión">
-                    <label for="floatingInput">Rut, sin puntos y con guión</label>
+                    <input #rut type="text" pattern="[0-9].{6,}" maxlength="8" class="form-control kimen-input" id="floatingInput" placeholder="Rut sin dígito verificador" onClick="this.select();" required>
+                    <label for="floatingInput">Rut sin dígito verificador</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control kimen-input" id="floatingPassword" placeholder="Contraseña">
+                    <input #psw type="password" class="form-control kimen-input" id="floatingPassword" placeholder="Contraseña" onClick="this.select();" required>
                     <label for="floatingPassword">Contraseña</label>
                 </div>
                 <div class="checkbox mb-3">
@@ -19,7 +19,7 @@
                     <input type="checkbox" value="remember-me"> Recordar Usuario
                     </label>
                 </div>
-                <button class="w-100 btn-lg kimen-btn" routerLink="/horario" type="submit">Ingresar</button>
+                <button class="w-100 btn-lg kimen-btn" (click)="signIn(rut.value, psw.value)" type="button">Ingresar</button>
                 <hr class="my-4">
                 <small class="text-muted">Los Arrayanes 1264, El Milagro, La Serena.</small>
             </form>

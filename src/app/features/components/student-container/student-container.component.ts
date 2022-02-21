@@ -11,6 +11,11 @@ export class StudentContainerComponent implements OnInit {
 
   @Input() grade: any;
   students: StudentModel[] = [];
+  visible:  boolean = false;
+
+  showDetail() {
+    this.visible = !this.visible;
+  }
 
   constructor(private http: HttpService) {}
 

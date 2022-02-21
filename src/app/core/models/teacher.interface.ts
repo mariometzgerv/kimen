@@ -1,6 +1,5 @@
-export interface StudentModel {
+export interface TeacherModel {
     id: number;
-    id_grade: number;
     name: string;
     lastname: string;
     rut: string;

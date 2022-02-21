@@ -1,10 +1,10 @@
-export interface GradeModel {
+export interface CourseModel {
     id: number;
     name: string;
     short_name: string;
 }
 
-export interface GradeTeacherModel {
+export interface CourseTeacherModel {
     id: number;
     name: string;
     short_name: string;
