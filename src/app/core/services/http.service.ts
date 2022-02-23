@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  private host = 'http://localhost/kimen_backend/';
+  private host = 'https://kimen-backend.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
