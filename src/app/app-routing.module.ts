@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
+import { ChangePswComponent } from './core/components/change-psw/change-psw.component';
 import { PageAdminComponent } from './features/pages/page-admin/page-admin.component';
 import { PageNewsComponent } from './features/pages/page-news/page-news.component';
 import { PageScheduleComponent } from './features/pages/page-schedule/page-schedule.component';
+import { PageChangePswComponent } from './features/pages/page-change-psw/page-change-psw.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
+  { path: 'cambiar-psw', component: ChangePswComponent },
+  { path: 'usuario', component: PageChangePswComponent },
   { path: 'horario', component: PageScheduleComponent },
-//  { path: 'calendario', component: CalendarPageComponent },
+//{ path: 'calendario', component: CalendarPageComponent },
   { path: 'comunicados',
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'todos', },

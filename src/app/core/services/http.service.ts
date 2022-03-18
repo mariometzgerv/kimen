@@ -18,7 +18,11 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  validateUser(rut: string, psw: string): Observable<UserModel[]> {
+  updateUserPsw(rut: string, psw: string): Observable<UserModel[]> {
+    let url = 'usuario_actualizar_psw.php?rut=' + rut + '&psw=' + psw;
+    return this.http.get<UserModel[]>(this.host + url);
+  }
+  validateUser(rut: string, psw: string) {
     let url = 'usuario_verificar.php?rut=' + rut + '&psw=' + psw;
     return this.http.get<UserModel[]>(this.host + url);
   }

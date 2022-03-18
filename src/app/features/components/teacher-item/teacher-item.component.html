@@ -6,14 +6,17 @@
         </div>
 
         <div *ngIf="visible" class="row container-fluid">
-            
+
             <h6 class="card-body card-text">Asignaturas</h6>
 
             <div class="row row-cols-sm-3">
-                <ng-container *ngFor="let course of courses">
+                <ng-container *ngFor="let course of courses; let i = index">
                     <div class="py-2">
-                        <input class="mx-2" type="checkbox" id="{{ course.id }}" value="{{ course.id }}" [checked]="course.is_teacher == true">
-                        <label for="{{ course.id }}">{{ course.name }}</label>
+                        <input class="mx-2" type="checkbox"
+                            id="{{ i }}" value="{{ course.id }}"
+                            [checked]="course.is_teacher == true"
+                            (change)="checkedChange($event, courses)">
+                        <label for="{{ i }}">{{ course.name }}</label>
                     </div>
                 </ng-container>
             </div>
@@ -21,12 +24,21 @@
             <h6 class="card-body card-text">Cursos</h6>
 
             <div class="row row-cols-sm-3">
-                <ng-container *ngFor="let grade of grades">
+                <ng-container *ngFor="let grade of grades; let i = index">
                     <div class="py-2">
-                        <input class="mx-2" type="checkbox" id="{{ grade.id }}" value="{{ grade.id }}" [checked]="grade.is_teacher == true">
-                        <label for="{{ grade.id }}">{{ grade.name }}</label>
+                        <input class="mx-2" type="checkbox"
+                            id="{{ i }}" value="{{ grade.id }}"
+                            [checked]="grade.is_teacher == true"
+                            (change)="checkedChange($event, grades)">
+                        <label for="{{ i }}">{{ grade.name }}</label>
                     </div>
                 </ng-container>
+            </div>
+
+            <div class="row row-cols-sm-3 py-4">
+                <div></div>
+                <div></div>
+                <button class="btn-lg kimen-btn" (click)="saveTeacher()" type="button">Guardar</button>
             </div>
 
         </div>

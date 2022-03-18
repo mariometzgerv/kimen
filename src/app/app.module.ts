@@ -18,6 +18,8 @@ import { TeacherItemComponent } from './features/components/teacher-item/teacher
 import { ScheduleItemComponent } from './features/components/schedule-item/schedule-item.component';
 import { CourseItemComponent } from './features/components/course-item/course-item.component';
 import { PageScheduleComponent } from './features/pages/page-schedule/page-schedule.component';
+import { ChangePswComponent } from './core/components/change-psw/change-psw.component';
+import { PageChangePswComponent } from './features/pages/page-change-psw/page-change-psw.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PageScheduleComponent } from './features/pages/page-schedule/page-sched
     TeacherItemComponent,
     ScheduleItemComponent,
     CourseItemComponent,
-    PageScheduleComponent
+    PageScheduleComponent,
+    ChangePswComponent,
+    PageChangePswComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="container col-xl-10 col-xxl-8 px-4 py-4">
+    <div class="row align-items-center g-lg-5">
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-4 p-md-5 rounded-3 kimen-container">
+                <div class="form-floating mb-3">
+                    <input #psw_old type="password" class="form-control kimen-input" id="floatingPassword" placeholder="Contraseña Antigua" onClick="this.select();" required>
+                    <label for="floatingPassword">Contraseña Antigua</label>
+                </div>
+                <hr class="my-4">
+                <div class="form-floating mb-3">
+                    <input #psw_new type="password" class="form-control kimen-input" id="floatingPassword" placeholder="Nueva Contraseña" onClick="this.select();" required>
+                    <label for="floatingPassword">Nueva Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input #psw_confirm type="password" class="form-control kimen-input" id="floatingPassword" placeholder="Confirmar Contraseña" onClick="this.select();" required>
+                    <label for="floatingPassword">Confirmar Contraseña</label>
+                </div>
+                <hr class="my-4">
+                <button class="w-100 btn-lg kimen-btn" (click)="ChangePsw(psw_old.value, psw_new.value, psw_confirm.value)" type="button">Confirmar</button>
+            </form>
+        </div>
+    </div>
+</div>
