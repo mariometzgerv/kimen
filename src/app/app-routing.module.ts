@@ -6,32 +6,34 @@ import { PageAdminComponent } from './features/pages/page-admin/page-admin.compo
 import { PageNewsComponent } from './features/pages/page-news/page-news.component';
 import { PageScheduleComponent } from './features/pages/page-schedule/page-schedule.component';
 import { PageChangePswComponent } from './features/pages/page-change-psw/page-change-psw.component';
+import { StudentFileComponent } from './features/components/student-file/student-file.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
-  { path: 'cambiar-psw', component: ChangePswComponent },
-  { path: 'usuario', component: PageChangePswComponent },
-  { path: 'horario', component: PageScheduleComponent },
+  { path: 'login',        component: LoginComponent },
+  { path: 'cambiar-psw',  component: ChangePswComponent },
+  { path: 'usuario',      component: PageChangePswComponent },
+  { path: 'horario',      component: PageScheduleComponent },
 //{ path: 'calendario', component: CalendarPageComponent },
   { path: 'comunicados',
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'todos', },
-      { path: 'todos', component: PageNewsComponent, },
-      { path: 'noleidos', component: PageNewsComponent, },
-      { path: 'leidos', component: PageNewsComponent, },
-      { path: 'nuevo', component: PageNewsComponent, },
-      { path: 'borradores', component: PageNewsComponent, }
+      { path: '', pathMatch: 'full', redirectTo: 'todos' },
+      { path: 'todos',      component: PageNewsComponent },
+      { path: 'noleidos',   component: PageNewsComponent },
+      { path: 'leidos',     component: PageNewsComponent },
+      { path: 'nuevo',      component: PageNewsComponent },
+      { path: 'borradores', component: PageNewsComponent }
     ]
   },
   { path: 'administracion',
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'alumnos', },
-      { path: 'alumnos', component: PageAdminComponent, },
-      { path: 'profesores', component: PageAdminComponent, },
-      { path: 'cursos', component: PageAdminComponent, },
-      { path: 'asignaturas', component: PageAdminComponent, },
-      { path: 'cobranza', component: PageAdminComponent, }
+      { path: '', pathMatch: 'full', redirectTo: 'alumnos' },
+      { path: 'alumnos',      component: PageAdminComponent },
+      { path: 'profesores',   component: PageAdminComponent },
+      { path: 'cursos',       component: PageAdminComponent },
+      { path: 'asignaturas',  component: PageAdminComponent },
+      { path: 'cobranza',     component: PageAdminComponent },
+      { path: 'alumno/:id',   component: StudentFileComponent }
     ]
   },
 //  { path: '404', component: E404Component },

@@ -20,6 +20,7 @@ import { CourseItemComponent } from './features/components/course-item/course-it
 import { PageScheduleComponent } from './features/pages/page-schedule/page-schedule.component';
 import { ChangePswComponent } from './core/components/change-psw/change-psw.component';
 import { PageChangePswComponent } from './features/pages/page-change-psw/page-change-psw.component';
+import { StudentFileComponent } from './features/components/student-file/student-file.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PageChangePswComponent } from './features/pages/page-change-psw/page-ch
     CourseItemComponent,
     PageScheduleComponent,
     ChangePswComponent,
-    PageChangePswComponent
+    PageChangePswComponent,
+    StudentFileComponent
   ],
   imports: [
     BrowserModule,

@@ -14,9 +14,9 @@
                     <div class="py-2">
                         <input class="mx-2" type="checkbox"
                             id="{{ i }}" value="{{ course.id }}"
-                            [checked]="course.is_teacher == true"
+                            [checked]="course.is_teacher == 1"
                             (change)="checkedChange($event, courses)">
-                        <label for="{{ i }}">{{ course.name }}</label>
+                        <label for="c_{{ i }}">{{ course.name }}</label>
                     </div>
                 </ng-container>
             </div>
@@ -28,9 +28,9 @@
                     <div class="py-2">
                         <input class="mx-2" type="checkbox"
                             id="{{ i }}" value="{{ grade.id }}"
-                            [checked]="grade.is_teacher == true"
+                            [checked]="grade.is_teacher == 1"
                             (change)="checkedChange($event, grades)">
-                        <label for="{{ i }}">{{ grade.name }}</label>
+                        <label for="g_{{ i }}">{{ grade.name }}</label>
                     </div>
                 </ng-container>
             </div>

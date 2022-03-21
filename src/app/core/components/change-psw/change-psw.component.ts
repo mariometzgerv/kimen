@@ -14,7 +14,7 @@ export class ChangePswComponent implements OnInit {
   user_id_role: any = localStorage.getItem('user_id_role');
   user_rut:     any = localStorage.getItem('user_rut');
   
-  async ChangePsw(psw_old: string, psw_new: string, psw_confirm: string) {
+  async changePsw(psw_old: string, psw_new: string, psw_confirm: string) {
     await this.http.validateUser(this.user_rut, psw_old).toPromise().then(data => this.user = data[0]);
     
     if (this.user == null) {

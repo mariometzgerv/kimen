@@ -18,11 +18,12 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  updateUserPsw(rut: string, psw: string): Observable<UserModel[]> {
+  updateUserPsw(rut: string, psw: string) {
     let url = 'usuario_actualizar_psw.php?rut=' + rut + '&psw=' + psw;
-    return this.http.get<UserModel[]>(this.host + url);
+    return this.http.get(this.host + url);
   }
-  validateUser(rut: string, psw: string) {
+
+  validateUser(rut: string, psw: string): Observable<UserModel[]> {
     let url = 'usuario_verificar.php?rut=' + rut + '&psw=' + psw;
     return this.http.get<UserModel[]>(this.host + url);
   }
@@ -35,6 +36,11 @@ export class HttpService {
   getGradesTeacher(id: number): Observable<GradeTeacherModel[]> {
     let url = 'curso.php?profesor=' + id;
     return this.http.get<GradeTeacherModel[]>(this.host + url);
+  }
+
+  updateGradesTeacher(id: number, grade: number, active: number) {
+    let url = 'curso.php?profesor=' + id + '&curso=' + grade + '&vigente=' + active;
+    return this.http.get(this.host + url);
   }
 
   getStudents(): Observable<StudentModel[]> {
@@ -62,6 +68,11 @@ export class HttpService {
     return this.http.get<CourseTeacherModel[]>(this.host + url);
   }
 
+  updateCoursesTeacher(id: number, course: number, active: number) {
+    let url = 'asignatura.php?profesor=' + id + '&asignatura=' + course + '&vigente=' + active;
+    return this.http.get(this.host + url);
+  }
+
   getScheduleGrade(id: number): Observable<ScheduleModel[]> {
     let url = 'horario.php?curso=' + id;
     return this.http.get<ScheduleModel[]>(this.host + url);
@@ -70,5 +81,10 @@ export class HttpService {
   getNewsUser(id: number): Observable<NewsModel[]> {
     let url = 'comunicado.php?usuario=' + id;
     return this.http.get<NewsModel[]>(this.host + url);
+  }
+
+  disableGradesCoursesTeacher(id: number) {
+    let url = 'curso.php?deshabilitar_asignatura_profesor=' + id;
+    return this.http.get(this.host + url);
   }
 }

@@ -8,5 +8,5 @@ export interface GradeTeacherModel {
     id: number;
     name: string;
     short_name: string;
-    is_teacher: boolean;
+    is_teacher: number;
 }

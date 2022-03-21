@@ -13,7 +13,7 @@ export class NewsContainerComponent implements OnInit {
   user_id:      any = localStorage.getItem('user_id');
   user_id_role: any = localStorage.getItem('user_id_role');
 
-  news: NewsModel[] = [];
+  news:     NewsModel[] = [];
   new_news: NewsModel[] = [];
   old_news: NewsModel[] = [];
 
