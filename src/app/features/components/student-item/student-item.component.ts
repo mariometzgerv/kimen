@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-item',
@@ -9,7 +10,11 @@ export class StudentItemComponent implements OnInit {
 
   @Input() student: any;
 
-  constructor() { }
+  viewStudent() {
+    this.router.navigateByUrl('administracion/alumno/' + this.student.id);
+  }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

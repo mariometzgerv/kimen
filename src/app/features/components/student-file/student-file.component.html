@@ -7,51 +7,186 @@
         </aside>
         <main class="col overflow-auto kimen-scroll">
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
                 <h1>Ficha del Estudiante</h1>
             </div>
             
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Identificación del Estudiante</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row">
+                    <div class="form-floating mb-3">
+                        <input #name_student type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Nombre"
+                        onClick="this.select();" required readonly="true" value="{{ student[0].name }} {{ student[0].lastname }}">
+                        <label class="px-4" for="floatingInput">Nombre</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input #rut_student type="text" maxlength="10" class="form-control kimen-input" id="floatingInput" placeholder="Rut"
+                            onClick="this.select();" required readonly="true" value="{{ student[0].rut }}-{{ student[0].dv }}">
+                        <label class="px-4" for="floatingInput">Rut</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #birth type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Fecha de Nacimiento"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Fecha de Nacimiento</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #years type="text" class="form-control kimen-input" id="floatingInput" placeholder="Años"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Años</label>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #months type="text" class="form-control kimen-input" id="floatingInput" placeholder="Meses"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Meses</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input #country type="text" class="form-control kimen-input" id="floatingInput" placeholder="País natal"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">País natal</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-8">
+                        <input #adress type="text" class="form-control kimen-input" id="floatingInput" placeholder="Dirección Actual"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Dirección Actual</label>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #phone type="text" class="form-control kimen-input" id="floatingInput" placeholder="Teléfono"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Teléfono</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Identificación del Apoderado</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row">
+                    <div class="form-floating mb-3">
+                        <input #name_parent type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Nombre"
+                        onClick="this.select();" required readonly="true">
+                        <label class="px-4" for="floatingInput">Nombre</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-8">
+                        <input #rut_parent type="text" maxlength="10" class="form-control kimen-input" id="floatingInput" placeholder="Rut"
+                            onClick="this.select();" required readonly="true">
+                        <label class="px-4" for="floatingInput">Rut</label>
+                    </div>
+                
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #birth_parent type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Fecha de Nacimiento"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Fecha de Nacimiento</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3 col-sm-8">
+                        <input #adress_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Dirección Actual"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Dirección Actual</label>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-sm-4">
+                        <input #phone_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Teléfono"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Teléfono</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Antecedentes relativos al Desarrollo y la Salud del/la Estudiante</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row">
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label for="cbdiagnostic" class="px-4">El o la estudiante tiene algún diagnóstico previo</label>
+                        <input id="cbdiagnostic" class="mx-2" type="checkbox" (change)="checkedChangeHasDiagnostic($event)">
+                    </div>
+
+                    <div *ngIf="visible_d" class="row row-cols-sm-2">
+                        <ng-container *ngFor="let diagnostic of diagnostics; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="{{ i }}" value="{{ diagnostic.id }}"
+                                    (change)="checkedChange($event, diagnostics)">
+                                <label for="{{ i }}">{{ diagnostic.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container py-3">
+                        <label class="px-4 my-2">¿El o la estudiante se encuentra en tratamiento farmacológico? ¿Cuál? Frecuencias - Dosis</label>
+                        <textarea #treatment class="form-control kimen-input my-2 px-4" readonly="true"></textarea>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-3">
+                        <input #blood type="text" maxlength="10" class="form-control kimen-input" id="floatingInput" placeholder="Rut"
+                            onClick="this.select();" required readonly="true">
+                        <label class="px-4" for="floatingInput">Grupo Sanguíneo</label>
+                    </div>
+                
+                    <div class="form-floating mb-3 col-sm-3">
+                        <input #birth_parent type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Fecha de Nacimiento"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Estatura</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3 col-sm-3">
+                        <input #adress_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Dirección Actual"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Peso</label>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-sm-3">
+                        <input #phone_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Teléfono"
+                            onClick="this.select();" readonly="true">
+                        <label class="px-4" for="floatingInput">Talla</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Desarrollo Social</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Desarrollo del Lenguaje</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Estado actual del Estudiante</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Antecedentes Familiares</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Antecedentes de Trayectoria</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>En caso de Emergencia comunicarse con</h2>
             </div>
             
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Antecedentes Familiares</h2>
             </div>
 
-            <div class="container shadow-sm kimen-card-item py-3">
+            <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Nombre de Personas que pueden Retirar al Estudiante</h2>
             </div>
             

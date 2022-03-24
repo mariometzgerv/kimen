@@ -7,6 +7,7 @@ import { TeacherModel } from '../models/teacher.interface';
 import { CourseModel, CourseTeacherModel } from '../models/course.interface';
 import { ScheduleModel } from '../models/schedule.interface';
 import { NewsModel } from '../models/news.interface';
+import { DiagnosticModel } from '../models/diagnostic.interface';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -41,6 +42,16 @@ export class HttpService {
   updateGradesTeacher(id: number, grade: number, active: number) {
     let url = 'curso.php?profesor=' + id + '&curso=' + grade + '&vigente=' + active;
     return this.http.get(this.host + url);
+  }
+
+  getDiagnostic(): Observable<DiagnosticModel[]> {
+    let url = 'diagnostico.php?info';
+    return this.http.get<DiagnosticModel[]>(this.host + url);
+  }
+
+  getStudent(id: number): Observable<StudentModel> {
+    let url = 'estudiante.php?id=' + id;
+    return this.http.get<StudentModel>(this.host + url);
   }
 
   getStudents(): Observable<StudentModel[]> {
