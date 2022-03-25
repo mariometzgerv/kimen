@@ -1,4 +1,4 @@
-export interface DiagnosticModel {
+export interface InfoModel {
     id: number;
     name: string;
 }

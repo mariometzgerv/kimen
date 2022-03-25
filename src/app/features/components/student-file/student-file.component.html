@@ -132,28 +132,52 @@
                         <textarea #treatment class="form-control kimen-input my-2 px-4" readonly="true"></textarea>
                     </div>
 
-                    <div class="form-floating mb-3 col-sm-3">
-                        <input #blood type="text" maxlength="10" class="form-control kimen-input" id="floatingInput" placeholder="Rut"
-                            onClick="this.select();" required readonly="true">
-                        <label class="px-4" for="floatingInput">Grupo Sanguíneo</label>
+                    <div class="mb-3 col-sm-1">
+                        <select #blood class="kimen-card-item form-select-lg kimen-container w-100">
+                            <option [value]="blood.id" *ngFor="let blood of blood_type">{{ blood.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-sm-1">
+                        <label>Grupo Sanguíneo</label>
                     </div>
                 
                     <div class="form-floating mb-3 col-sm-3">
                         <input #birth_parent type="text" maxlength="255" class="form-control kimen-input" id="floatingInput" placeholder="Fecha de Nacimiento"
                             onClick="this.select();" readonly="true">
-                        <label class="px-4" for="floatingInput">Estatura</label>
+                        <label class="px-4" for="floatingInput">Estatura (cm)</label>
                     </div>
                     
                     <div class="form-floating mb-3 col-sm-3">
                         <input #adress_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Dirección Actual"
                             onClick="this.select();" readonly="true">
-                        <label class="px-4" for="floatingInput">Peso</label>
+                        <label class="px-4" for="floatingInput">Peso (Kg)</label>
                     </div>
-    
-                    <div class="form-floating mb-3 col-sm-3">
-                        <input #phone_parent type="text" class="form-control kimen-input" id="floatingInput" placeholder="Teléfono"
-                            onClick="this.select();" readonly="true">
-                        <label class="px-4" for="floatingInput">Talla</label>
+
+                    <div class="mb-3 col-sm-1">
+                        <select #blood class="kimen-card-item form-select-lg kimen-container w-100">
+                            <option [value]="size.id" *ngFor="let size of students_size">{{ size.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-sm-1">
+                        <label>Talla</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2">
+                        <ng-container *ngFor="let info of medic_info; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, medic_info)">
+                                <label for="{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container py-3">
+                        <label class="px-4 my-2">¿El o los problemas de salud reciben control/tratamiento (especifique)?</label>
+                        <textarea #problems class="form-control kimen-input my-2 px-4" readonly="true"></textarea>
                     </div>
                 </div>
             </div>

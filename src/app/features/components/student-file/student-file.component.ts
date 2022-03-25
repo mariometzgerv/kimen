@@ -10,10 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class StudentFileComponent implements OnInit {
 
-  student_id:   number = 0;
-  student:      any;
-  diagnostics:  any;
-  visible_d:    boolean = false;
+  student_id:     number = 0;
+  student:        any;
+  diagnostics:    any;
+  blood_type:     any;
+  medic_info:     any;
+  students_size:  any;
+  visible_d:      boolean = false;
 
   constructor(private router: Router, private router_params: ActivatedRoute, private http: HttpService) { }
 
@@ -34,7 +37,10 @@ export class StudentFileComponent implements OnInit {
   ngOnInit(): void {
     this.router_params.params.subscribe(params => { this.student_id = params['id'] });
     this.http.getStudent(this.student_id).subscribe(data => this.student = data);
+    this.http.getSize().subscribe(data => this.students_size = data);
     this.http.getDiagnostic().subscribe(data => this.diagnostics = data);
+    this.http.getBloodType().subscribe(data => this.blood_type = data);
+    this.http.getMedicInfo().subscribe(data => this.medic_info = data);
   }
 
 }

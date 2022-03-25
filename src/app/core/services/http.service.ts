@@ -7,7 +7,7 @@ import { TeacherModel } from '../models/teacher.interface';
 import { CourseModel, CourseTeacherModel } from '../models/course.interface';
 import { ScheduleModel } from '../models/schedule.interface';
 import { NewsModel } from '../models/news.interface';
-import { DiagnosticModel } from '../models/diagnostic.interface';
+import { InfoModel } from '../models/info.interface';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -44,9 +44,24 @@ export class HttpService {
     return this.http.get(this.host + url);
   }
 
-  getDiagnostic(): Observable<DiagnosticModel[]> {
-    let url = 'diagnostico.php?info';
-    return this.http.get<DiagnosticModel[]>(this.host + url);
+  getSize(): Observable<InfoModel[]> {
+    let url = 'info.php?talla';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
+  getDiagnostic(): Observable<InfoModel[]> {
+    let url = 'info.php?diagnostico';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
+  getBloodType(): Observable<InfoModel[]> {
+    let url = 'info.php?sanguineo';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
+  getMedicInfo(): Observable<InfoModel[]> {
+    let url = 'info.php?medica';
+    return this.http.get<InfoModel[]>(this.host + url);
   }
 
   getStudent(id: number): Observable<StudentModel> {

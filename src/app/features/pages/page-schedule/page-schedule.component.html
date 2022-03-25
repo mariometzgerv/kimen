@@ -4,7 +4,7 @@
     <div class="row">
         <main class="col overflow-auto kimen-scroll">
             <div *ngIf="user_id_role == 1" class="card-body">
-                <select class="kimen-card-item form-select-lg w-100" (change)="changeGrade($event.target)">
+                <select class="kimen-card-item form-select-lg kimen-container w-100" (change)="changeGrade($event.target)">
                     <option [value]="grade.id" *ngFor="let grade of grades">{{ grade.name }}</option>
                 </select>
             </div>
