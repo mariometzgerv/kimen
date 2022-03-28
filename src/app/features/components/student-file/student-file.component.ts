@@ -16,7 +16,11 @@ export class StudentFileComponent implements OnInit {
   blood_type:     any;
   medic_info:     any;
   students_size:  any;
+  social:         any;
+  c_type:         any;
+  c_preference:   any;
   visible_d:      boolean = false;
+  visible_l:      boolean = false;
 
   constructor(private router: Router, private router_params: ActivatedRoute, private http: HttpService) { }
 
@@ -30,6 +34,11 @@ export class StudentFileComponent implements OnInit {
     this.visible_d = current.checked;
   }
 
+  checkedChangeHasDiagLang(event: any) {
+    let current = event.currentTarget;
+    this.visible_l = current.checked;
+  }
+
   checkedChange(event: any, array: any) {
     let current = event.currentTarget;
   }
@@ -41,6 +50,9 @@ export class StudentFileComponent implements OnInit {
     this.http.getDiagnostic().subscribe(data => this.diagnostics = data);
     this.http.getBloodType().subscribe(data => this.blood_type = data);
     this.http.getMedicInfo().subscribe(data => this.medic_info = data);
+    this.http.getSocial().subscribe(data => this.social = data);
+    this.http.getComType().subscribe(data => this.c_type = data);
+    this.http.getComPreference().subscribe(data => this.c_preference = data);
   }
 
 }

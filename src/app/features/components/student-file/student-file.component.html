@@ -112,7 +112,7 @@
             <div class="container shadow-sm kimen-card-item-master py-3 my-3">
                 <div class="row">
                     <div class="container shadow-sm kimen-container py-3">
-                        <label for="cbdiagnostic" class="px-4">El o la estudiante tiene algún diagnóstico previo</label>
+                        <label for="cbdiagnostic" class="px-4">¿El o la estudiante tiene algún diagnóstico previo?</label>
                         <input id="cbdiagnostic" class="mx-2" type="checkbox" (change)="checkedChangeHasDiagnostic($event)">
                     </div>
 
@@ -155,13 +155,13 @@
                     </div>
 
                     <div class="mb-3 col-sm-1">
+                        <label>Talla</label>
+                    </div>
+                    
+                    <div class="mb-3 col-sm-1">
                         <select #blood class="kimen-card-item form-select-lg kimen-container w-100">
                             <option [value]="size.id" *ngFor="let size of students_size">{{ size.name }}</option>
                         </select>
-                    </div>
-
-                    <div class="mb-3 col-sm-1">
-                        <label>Talla</label>
                     </div>
 
                     <div class="row row-cols-sm-2">
@@ -186,12 +186,134 @@
                 <h2>Desarrollo Social</h2>
             </div>
 
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row row-cols-sm-2">
+                    <ng-container *ngFor="let info of social; let i = index">
+                        <div class="py-2">
+                            <input class="mx-2" type="checkbox"
+                                id="{{ i }}" value="{{ info.id }}"
+                                (change)="checkedChange($event, social)">
+                            <label for="{{ i }}">{{ info.name }}</label>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
             <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Desarrollo del Lenguaje</h2>
             </div>
 
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row">
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label for="cbdiaglang" class="px-4">¿El o la estudiante tiene diagnóstico fonoaudiológico?</label>
+                        <input id="cbdiaglang" class="mx-2" type="checkbox" (change)="checkedChangeHasDiagLang($event)">
+                    </div>
+
+                    <div *ngIf="visible_l" class="row row-cols-sm-2 my-3">
+                        <div class="mb-3">
+                            <label>El o la estudiante se comunica preferentemente de forma:</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <select #preference class="kimen-card-item form-select-lg kimen-container w-100">
+                                <option [value]="preference.id" *ngFor="let preference of c_preference">{{ preference.name }}</option>
+                            </select>
+                        </div>
+                        
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
             <div class="container shadow-sm kimen-card-item py-3 my-3">
                 <h2>Estado actual del Estudiante</h2>
+            </div>
+
+            <div class="container shadow-sm kimen-card-item-master py-3 my-3">
+                <div class="row">
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label class="px-4">Alimentación:</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 my-3">
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="a_{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="a_{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label class="px-4">Peso (apreciación del informante):</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 my-3">
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="p_{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="p_{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label class="px-4">Sueño:</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 my-3">
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="s_{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="s_{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label class="px-4">Problemas del sueño:</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 my-3">
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="ps_{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="ps_{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="container shadow-sm kimen-container py-3">
+                        <label class="px-4">Humor/comportamiento (señale el comportamiento habitual):</label>
+                    </div>
+
+                    <div class="row row-cols-sm-2 my-3">
+                        <ng-container *ngFor="let info of c_type; let i = index">
+                            <div class="py-2">
+                                <input class="mx-2" type="checkbox"
+                                    id="h_{{ i }}" value="{{ info.id }}"
+                                    (change)="checkedChange($event, c_type)">
+                                <label for="h_{{ i }}">{{ info.name }}</label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
             </div>
 
             <div class="container shadow-sm kimen-card-item py-3 my-3">

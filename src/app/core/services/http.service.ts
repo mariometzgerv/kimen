@@ -59,8 +59,23 @@ export class HttpService {
     return this.http.get<InfoModel[]>(this.host + url);
   }
 
+  getSocial(): Observable<InfoModel[]> {
+    let url = 'info.php?social';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
   getMedicInfo(): Observable<InfoModel[]> {
     let url = 'info.php?medica';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
+  getComType(): Observable<InfoModel[]> {
+    let url = 'info.php?tipo';
+    return this.http.get<InfoModel[]>(this.host + url);
+  }
+
+  getComPreference(): Observable<InfoModel[]> {
+    let url = 'info.php?preferencia';
     return this.http.get<InfoModel[]>(this.host + url);
   }
 
